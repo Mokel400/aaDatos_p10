@@ -1,0 +1,19 @@
+2026-11-03 11:53:41.277981+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "SOCIOS" no encontrada
+Table "SOCIOS" not found; SQL statement:
+INSERT INTO socios VALUES (1, 'Lucia Fernandez Gómez', 'Completo', 39.90, '2025-02-15', TRUE) [42102-252]
+2026-11-03 11:54:10.216344+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "SOCIOS" no encontrada
+Table "SOCIOS" not found; SQL statement:
+INSERT INTO socios VALUES (1, 'Lucia Fernandez Gómez', 'Completo', 39.90, '2025-02-15', TRUE) [42102-252]
+2026-11-03 12:03:56.456059+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "alta" no encontrada
+Column "alta" not found [42122-252]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3492)
+	at org.h2.jdbc.JdbcResultSet.getDate(JdbcResultSet.java:478)
+	at es.fplumara.dam.ad.p10.Principal.listarSocios(Principal.java:73)
+	at es.fplumara.dam.ad.p10.Principal.main(Principal.java:22)
