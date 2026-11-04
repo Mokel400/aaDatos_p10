@@ -3,6 +3,7 @@ package es.fplumara.dam.ad.p10;
 
 
 import es.fplumara.dam.ad.p10.retos.Azul;
+import es.fplumara.dam.ad.p10.retos.Verde;
 
 import java.math.BigDecimal;
 import java.sql.*;
@@ -14,8 +15,6 @@ public class Principal {
     private static final String USUARIO = "alumno";
     private static final String CLAVE = "alumno";
 
-    private static Azul azul = new Azul();
-
     public static void main(String[] args) {
         try (Connection conexion = DriverManager.getConnection(URL, USUARIO, CLAVE);
              Statement sentencia = conexion.createStatement()) {
@@ -25,6 +24,7 @@ public class Principal {
             cargarScript(sentencia);
             listarSocios(sentencia);
             Azul.listarSociosConPlanCompleto(sentencia);
+            Verde.darDeBajaAntedDe2024(sentencia);
         } catch (SQLException e) {
             System.out.println("Error de base de datos: " + e.getMessage());
         }
