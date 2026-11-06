@@ -2,6 +2,7 @@ package es.fplumara.dam.ad.p10;
 
 
 
+import es.fplumara.dam.ad.p10.retos.Amarillo;
 import es.fplumara.dam.ad.p10.retos.Azul;
 import es.fplumara.dam.ad.p10.retos.Verde;
 
@@ -23,8 +24,18 @@ public class Principal {
             insertarSocios(sentencia);
             cargarScript(sentencia);
             listarSocios(sentencia);
+
+            System.out.println("");
+            System.out.println("Reto Azul");
             Azul.listarSociosConPlanCompleto(sentencia);
+
+            System.out.println("");
+            System.out.println("Reto Verde");
             Verde.darDeBajaAntedDe2024(sentencia);
+
+            System.out.println("");
+            System.out.println("Reto Amarillo");
+            Amarillo.convertirAObjetos(sentencia);
         } catch (SQLException e) {
             System.out.println("Error de base de datos: " + e.getMessage());
         }

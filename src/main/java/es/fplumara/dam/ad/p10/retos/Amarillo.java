@@ -12,11 +12,11 @@ import java.util.List;
 
 public class Amarillo {
 
-    private static List<Socio> convertirAObjetos(Statement sentencia) throws SQLException {
+    public static List<Socio> convertirAObjetos(Statement sentencia) throws SQLException {
         String sql = "SELECT * FROM socio ORDER BY id";
+        BigDecimal cuotaTotal = new BigDecimal(0);
         List<Socio> socios = new ArrayList<>();
         try (ResultSet resultado = sentencia.executeQuery(sql)) {
-            int total = 0;
             System.out.println("ID | Nombre                   | Plan     | Cuota | Alta       | Estado");
             while (resultado.next()){
                 int id = resultado.getInt("id");
@@ -29,11 +29,17 @@ public class Amarillo {
                 if (activo){
                     estado = "activo";
                 }
-                System.out.printf("%2d | %-24s | %-8s | %5s | %s | %s%n",
-                        id, nombre, plan, cuota, fechaAlta, estado);
-                total++;
+                Socio socio = new Socio(id, nombre, plan, cuota, fechaAlta, activo, estado);
+                socios.add(socio);
             }
-            System.out.println("Socios totales: " + total);
+            for (Socio socio : socios) {
+                if (socio.isActivo()){
+                    cuotaTotal = cuotaTotal.add(socio.getCuota());
+                    System.out.println(socio);
+                }
+            }
+            System.out.println("Cuota total: " + cuotaTotal);
+
         }
         return socios;
     }

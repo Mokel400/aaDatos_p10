@@ -1,5 +1,6 @@
 package es.fplumara.dam.ad.p10.modelo;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class Socio {
@@ -7,17 +8,19 @@ public class Socio {
     private int ID;
     private String nombre;
     private String plan;
-    private double cuota;
+    private BigDecimal cuota;
     private Date alta;
-    private boolean estado;
+    private boolean activo;
+    private String estado;
 
-    public Socio(boolean estado, Date alta, double cuota, String plan, String nombre, int ID) {
-        this.estado = estado;
-        this.alta = alta;
-        this.cuota = cuota;
-        this.plan = plan;
-        this.nombre = nombre;
+    public Socio(int ID, String nombre, String plan, BigDecimal cuota, Date alta, boolean activo, String estado) {
         this.ID = ID;
+        this.nombre = nombre;
+        this.plan = plan;
+        this.cuota = cuota;
+        this.alta = alta;
+        this.activo = activo;
+        this.estado = estado;
     }
 
     public Socio() {}
@@ -29,7 +32,6 @@ public class Socio {
     public void setID(int ID) {
         this.ID = ID;
     }
-
 
     public String getNombre() {
         return nombre;
@@ -47,11 +49,11 @@ public class Socio {
         this.plan = plan;
     }
 
-    public double getCuota() {
+    public BigDecimal getCuota() {
         return cuota;
     }
 
-    public void setCuota(double cuota) {
+    public void setCuota(BigDecimal cuota) {
         this.cuota = cuota;
     }
 
@@ -63,11 +65,19 @@ public class Socio {
         this.alta = alta;
     }
 
-    public boolean isEstado() {
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
@@ -79,7 +89,8 @@ public class Socio {
                 ", plan='" + plan + '\'' +
                 ", cuota=" + cuota +
                 ", alta=" + alta +
-                ", estado=" + estado +
+                ", activo=" + activo +
+                ", estado='" + estado + '\'' +
                 '}';
     }
 }
